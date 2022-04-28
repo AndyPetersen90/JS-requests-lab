@@ -85,13 +85,28 @@ sayHelloButton.addEventListener('click', sayHello);
     data (in the intermediate instructions we'll come back to this function and add HTML).
 */ 
 
+// PROBLEM 9
+/* 
+    Back in the ohMy function on Problem 5, replace the console log in the promise's 
+    callback with a for loop that loops over res.data. 
+
+    On each iteration of the loop, create a new p element. Set its textContent equal the 
+    string at the current index (i) and then append the new p element onto the document's body. 
+*/
+
 const baseURL = 'http://localhost:3000'
+
+const bodyelem = document.querySelector('body');
 
 const ohMy = () => {
     // YOUR CODE HERE
     axios.get(`${baseURL}/animals`)
         .then((res) => {
-            console.log(res.data);
+            for (let i = 0; i < res.data.length; i++) {
+               let newPElem = document.createElement('p')
+               newPElem.innerHTML = `${res.data[i]}`;
+               bodyelem.appendChild(newPElem);
+            }
         })
         .catch((err) =>{
             console.log(err);
@@ -183,9 +198,11 @@ queryButton.addEventListener('click', queryRequest);
 
 // PROBLEM 9
 /* 
-    Back in the ohMy function on Problem 5, replace the console log in the promise's callback with a for loop that loops over res.data. 
+    Back in the ohMy function on Problem 5, replace the console log in the promise's 
+    callback with a for loop that loops over res.data. 
 
-    On each iteration of the loop, create a new p element. Set its textContent equal the string at the current index (i) and then append the new p element onto the document's body. 
+    On each iteration of the loop, create a new p element. Set its textContent equal the 
+    string at the current index (i) and then append the new p element onto the document's body. 
 */
 
 // Code in the ohMy function in Problem 5
