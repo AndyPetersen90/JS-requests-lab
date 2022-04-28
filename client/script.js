@@ -85,9 +85,10 @@ sayHelloButton.addEventListener('click', sayHello);
     data (in the intermediate instructions we'll come back to this function and add HTML).
 */ 
 
+const baseURL = 'http://localhost:3000'
+
 const ohMy = () => {
     // YOUR CODE HERE
-    const baseURL = 'http://localhost:3000'
     axios.get(`${baseURL}/animals`)
         .then((res) => {
             console.log(res.data);
@@ -102,20 +103,35 @@ document.getElementById('animals-button').addEventListener('click', ohMy)
 
 // PROBLEM 6 
 /*
-    Now lets see if you can send a request param! inside repeatMyParam function below  make get request to 'http://localhost:3000/repeat/{SOMEPARAM}', but with a string instead of {SOMEPARAM}.  
+    Now lets see if you can send a request param! inside repeatMyParam function below 
+     make get request to 'http://localhost:3000/repeat/{SOMEPARAM}', but with a string 
+     instead of {SOMEPARAM}.  
 
     The function that runs when this request is made will return whatever parameter you sent 
 
-    Handle the promise returned from the request with a .then, which will take in a callback -- the callback function should print the response.data.
+    Handle the promise returned from the request with a .then, which will take in a 
+    callback -- the callback function should print the response.data.
     
-    Outside of the function, select the button with the id "repeat-button" and add a click event listener that calls the repeatMyParam function.
+    Outside of the function, select the button with the id "repeat-button" and add a 
+    click event listener that calls the repeatMyParam function.
     
     We'll be updating this function in the next problem.
 */
 
 const repeatMyParam = () => {
     //YOUR CODE HERE
+    axios.get( `${baseURL}/repeat/justice`)
+        .then((res) =>{
+            console.log(res.data);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
 }
+
+const repeatButton = document.querySelector('#repeat-button')
+
+repeatButton.addEventListener('click', repeatMyParam);
 
 // PROBLEM 7
 /*
