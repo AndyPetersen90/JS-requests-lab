@@ -120,9 +120,13 @@ document.getElementById('animals-button').addEventListener('click', ohMy)
 
 const repeatMyParam = () => {
     //YOUR CODE HERE
-    axios.get( `${baseURL}/repeat/justice`)
+    axios.get( `${baseURL}/repeat/Justice`)
         .then((res) =>{
             console.log(res.data);
+            let repeatelement = document.getElementById('repeat-text')
+            repeatelement.textContent = res.data;
+            repeatelement.style.display = 'block';
+
         })
         .catch((err)=>{
             console.log(err);
@@ -137,8 +141,10 @@ repeatButton.addEventListener('click', repeatMyParam);
 /*
     Now that we have the response data, let's add it to our web page! 
     
-    Inside the repeatMyParam function above, grab the element with the id of 'repeat-text' and set its textContent property equal to the response data.
+    Inside the repeatMyParam function above, grab the element with the id of 'repeat-text' 
+    and set its textContent property equal to the response data.
 */
+
 
 // Code in the repeatMyParam function above
 
@@ -148,14 +154,28 @@ repeatButton.addEventListener('click', repeatMyParam);
 /*
     Time to attach a query to our request!
 
-    Write a function that makes a get request to 'http://localhost:3000/query-test', with a query of your choice on the end!
+    Write a function that makes a get request to 'http://localhost:3000/query-test', 
+    with a query of your choice on the end!
 
-    Outside of your new function, select the button with the id "query-button" and add a click event listener that calls your function.
+    Outside of your new function, select the button with the id "query-button" and add a 
+    click event listener that calls your function.
 */
 
 // CODE HERE
 
+function queryRequest () {
+    axios.get(`${baseURL}/query-test/?Jeddy`)
+        .then((res) =>{
+            console.log(res.data);
+        })
+        .catch((err) =>{
+            console.log(err);
+        })
+}
 
+const queryButton = document.getElementById('query-button')
+
+queryButton.addEventListener('click', queryRequest);
 
 ////////////////
 //INTERMEDIATE//
