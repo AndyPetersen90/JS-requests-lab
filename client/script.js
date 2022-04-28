@@ -178,19 +178,19 @@ repeatButton.addEventListener('click', repeatMyParam);
 
 // CODE HERE
 
-function queryRequest () {
-    axios.get(`${baseURL}/query-test/?Jeddy`)
-        .then((res) =>{
-            console.log(res.data);
-        })
-        .catch((err) =>{
-            console.log(err);
-        })
-}
+// function queryRequest () {
+//     axios.get(`${baseURL}/query-test/?Jeddy`)
+//         .then((res) =>{
+//             console.log(res.data);
+//         })
+//         .catch((err) =>{
+//             console.log(err);
+//         })
+// }
 
-const queryButton = document.getElementById('query-button')
+// const queryButton = document.getElementById('query-button')
 
-queryButton.addEventListener('click', queryRequest);
+// queryButton.addEventListener('click', queryRequest);
 
 ////////////////
 //INTERMEDIATE//
@@ -209,15 +209,47 @@ queryButton.addEventListener('click', queryRequest);
 
 // PROBLEM 10 
 /*
-    In the function that you wrote for Problem 8, change the URL to test a couple different scenarios. 
+    In the function that you wrote for Problem 8, change the URL to test a couple different
+     scenarios. 
 
     1: Send no queries on the URL -- what happened? 
 
     2: Send more than 1 query on the URL -- what happened? 
 */
 
-// Edit code in Problem 8
+// Edit code in Problem 8// I dont want too edit 8.
+// I'm making dupilcate codes below//
 
+//problem 10.1
+// function queryRequest () {
+//     axios.get(`${baseURL}/query-test`)
+//         .then((res) =>{
+//             console.log(res.data);
+//         })
+//         .catch((err) =>{
+//             console.log(err);
+//         })
+// }
+
+// const queryButton = document.getElementById('query-button')
+
+// queryButton.addEventListener('click', queryRequest);
+//it console logged "you sent an empty query"
+
+//Problem 10.2
+function queryRequest () {
+    axios.get(`${baseURL}/query-test/?Jeddy?alec`)
+        .then((res) =>{
+            console.log(res.data);
+        })
+        .catch((err) =>{
+            console.log(err);
+        })
+}
+
+const queryButton = document.getElementById('query-button')
+
+queryButton.addEventListener('click', queryRequest);
 
 
 ////////////
