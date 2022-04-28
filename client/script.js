@@ -308,10 +308,23 @@ function createFood (event) {
             let listItems = document.createElement('li')
             listItems.textContent = foodInput.value
             unOrderedList.appendChild(listItems);
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'X';
+            deleteBtn.addEventListener('click', deleteFood);
+            listItems.appendChild(deleteBtn);
+
         })
         .catch((err) =>{
             console.log(err);
         })
 }
+
+const deleteFood = (event) => {
+    event.target.parentNode.remove();
+}
+
+
+
 
 foodForm.addEventListener('submit', createFood);
